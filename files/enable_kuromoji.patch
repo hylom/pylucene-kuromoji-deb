@@ -1,0 +1,22 @@
+Description: Add kuromoji mojudle
+Author: Hiromichi Matsushima <hylom@users.osdn.net>
+Last-Update: 2018-02-05
+
+--- pylucene-4.10.1/Makefile.old	2018-02-05 19:27:37.407004318 +0900
++++ pylucene-4.10.1/Makefile	2018-02-05 19:28:20.893457114 +0900
+@@ -161,6 +161,7 @@
+ 
+ # comment/uncomment the desired/undesired optional contrib modules below
+ JARS+=$(ANALYZERS_JAR)          # many language analyzers
++JARS+=$(KUROMOJI_JAR)           # Japanese language analyzers
+ JARS+=$(MEMORY_JAR)             # single-document memory index
+ JARS+=$(HIGHLIGHTER_JAR)        # needs memory contrib
+ #ifndef LUCENE_MAVEN_REPO
+@@ -193,6 +194,7 @@
+ 
+ LUCENE_JAR=$(LUCENE)/build/core/lucene-core-$(LUCENE_VER).jar
+ ANALYZERS_JAR=$(LUCENE)/build/analysis/common/lucene-analyzers-common-$(LUCENE_VER).jar
++KUROMOJI_JAR=$(LUCENE)/build/analysis/common/lucene-analyzers-kuromoji-$(LUCENE_VER).jar
+ HIGHLIGHTER_JAR=$(LUCENE)/build/highlighter/lucene-highlighter-$(LUCENE_VER).jar
+ MEMORY_JAR=$(LUCENE)/build/memory/lucene-memory-$(LUCENE_VER).jar
+ EXTENSIONS_JAR=build/jar/extensions.jar

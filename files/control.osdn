@@ -1,0 +1,19 @@
+Source: pylucene
+Section: python
+Priority: optional
+Maintainer: Hiromichi Matsushima <hylom@users.osdn.net>
+Build-Depends: debhelper (>= 9), dh-python, jcc, default-jdk, ant, python-setuptools (>= 0.6b3), python-all-dev (>= 2.6.6-3), 
+ antlr3, liblucene4.10-java, libasm-java
+Standards-Version: 3.9.8
+Homepage: http://lucene.apache.org/pylucene/
+
+Package: python-lucene
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, default-jre-headless,
+ liblucene4.10-java, libasm-java
+Replaces: pylucene (<< 2.3.1-1.1+b1)
+Breaks: pylucene (<< 2.3.1-1.1+b1)
+Description: Python extension for accessing Java Lucene
+ PyLucene is a Python extension for accessing Java Lucene. Its goal
+ is to allow you to use Lucene's text indexing and searching
+ capabilities from Python.
