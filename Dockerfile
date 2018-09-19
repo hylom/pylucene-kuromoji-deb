@@ -12,10 +12,10 @@ RUN apt-get install -y debhelper dh-python jcc default-jdk ant python-setuptools
 RUN apt-get install -y devscripts
 
 COPY $PYLUCENE_TARBALL /root/
-RUN cd /root/ && tar xvzf $PYLUCENE_TARBALL
+RUN cd /root/ && tar xvzf $(basename $PYLUCENE_TARBALL)
 
 COPY  $PYLUCENE_PATCH /root/
-RUN cd /root/pylucene-$PYLUCENE_VERSION && tar xvJf /root/$PYLUCENE_PATCH
+RUN cd /root/pylucene-$PYLUCENE_VERSION && tar xvJf /root/$(basename $PYLUCENE_PATCH)
 
 COPY $FILES/enable_kuromoji.patch /root/pylucene-$PYLUCENE_VERSION/debian/patches/
 RUN echo "enable_kuromoji.patch" >> /root/pylucene-$PYLUCENE_VERSION/debian/patches/series
@@ -24,6 +24,6 @@ COPY $FILES/control.osdn /root/pylucene-$PYLUCENE_VERSION/debian/control
 COPY $FILES/changelog.osdn /root/pylucene-$PYLUCENE_VERSION/debian/changelog
 
 COPY $FILES/entrypoint.sh /
-RUN chmod 755 /entry-point.sh
-ENTRYPOINT ["/entry-point.sh"]
+RUN chmod 755 /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
 
