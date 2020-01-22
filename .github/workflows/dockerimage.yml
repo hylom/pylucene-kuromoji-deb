@@ -25,3 +25,8 @@ jobs:
         name: python-lucene_${{ github.sha }}_amd64
         path: deb
 
+    - name: Exports SSH private key
+      run: echo ${{ secrets.SSHPrivateKey }} > id_rsa && chmod 600 id_rsa
+    
+    - name: Scp artifact
+      run: scp -i id_rsa -r dist/ foobar@sdtest.osdn.co.jp:~/
