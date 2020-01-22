@@ -19,6 +19,6 @@ jobs:
 
     - uses: actions/upload-artifact@v1
       with:
-        name: pylucene_*_amd64.deb
-        path: pylucene_*_amd64.deb
+        name: python-lucene_*_amd64.deb
+        path: python-lucene_*_amd64.deb
 
