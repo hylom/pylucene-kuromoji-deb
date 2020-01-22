@@ -15,7 +15,7 @@ jobs:
       run: docker build . --file Dockerfile --tag pylucene_build
 
     - name: Build .deb package
-      run: docker run -ti -v $(pwd):/host:rw pylucene_build
+      run: docker run -v $(pwd):/host:rw pylucene_build
 
     - uses: actions/upload-artifact@v1
       with:
