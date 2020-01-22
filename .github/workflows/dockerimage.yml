@@ -18,7 +18,7 @@ jobs:
       run: docker run -v $(pwd):/host:rw pylucene_build
     
     - name: Copy artifact
-      run: mkdir -p deb && cp -a python-lucene_*_amd64.deb deb/
+      run: mkdir -p deb && cp -a python-lucene* pylucene_* deb/
 
     - uses: actions/upload-artifact@v1
       with:
