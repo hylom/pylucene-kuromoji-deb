@@ -22,6 +22,6 @@ jobs:
 
     - uses: actions/upload-artifact@v1
       with:
-        name: python-lucene_${GITHUB_SHA}_amd64.deb
-        path: python-lucene_${GITHUB_SHA}_amd64.deb
+        name: python-lucene_${{ env.GITHUB_SHA }}_amd64.deb
+        path: python-lucene_${{ env.GITHUB_SHA }}_amd64.deb
 
