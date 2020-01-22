@@ -1,0 +1,24 @@
+name: Build Deb Package
+
+on: [push]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag pylucene_build
+
+    - name: Build .deb package
+      run: docker run -ti -v $(pwd):/host:rw pylucene_build
+
+    - uses: actions/upload-artifact@v1
+      with:
+        name: pylucene_*_amd64.deb
+        path: pylucene_*_amd64.deb
+
