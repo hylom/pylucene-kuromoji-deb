@@ -16,9 +16,12 @@ jobs:
 
     - name: Build .deb package
       run: docker run -v $(pwd):/host:rw pylucene_build
+    
+    - name: Rename artifact
+      run: cp -a python-lucene_*_amd64.deb python-lucene_${GITHUB_REF}_amd64.deb
 
     - uses: actions/upload-artifact@v1
       with:
-        name: python-lucene_*_amd64.deb
-        path: python-lucene_*_amd64.deb
+        name: python-lucene_${GITHUB_REF}_amd64.deb
+        path: python-lucene_${GITHUB_REF}_amd64.deb
 
